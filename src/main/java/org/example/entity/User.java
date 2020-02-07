@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.dto.UserDto;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -17,7 +19,7 @@ public class User {
     @Id
     private String id;
 
-    @Field("email")
+    @Indexed(name = "email_index", unique = true, direction = IndexDirection.ASCENDING)
     private String email;
 
     @Field("first_name")
