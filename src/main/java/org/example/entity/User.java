@@ -10,6 +10,9 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.Collections;
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,7 +34,10 @@ public class User {
     @Field("enabled")
     private boolean enabled;
 
+    @Field("roles")
+    private Set<Role> roles;
+
     public static User from(UserDto userDto) {
-        return new User(null, userDto.getEmail(), userDto.getFirstName(), userDto.getLastName(), false);
+        return new User(null, userDto.getEmail(), userDto.getFirstName(), userDto.getLastName(), false, Collections.emptySet());
     }
 }
