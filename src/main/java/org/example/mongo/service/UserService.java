@@ -1,6 +1,6 @@
-package org.example.service;
+package org.example.mongo.service;
 
-import org.example.entity.User;
+import org.example.mongo.entity.User;
 
 public interface UserService {
 

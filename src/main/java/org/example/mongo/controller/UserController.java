@@ -1,8 +1,8 @@
-package org.example.controller;
+package org.example.mongo.controller;
 
-import org.example.dto.UserDto;
-import org.example.entity.User;
-import org.example.service.UserService;
+import org.example.mongo.dto.UserDto;
+import org.example.mongo.entity.User;
+import org.example.mongo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

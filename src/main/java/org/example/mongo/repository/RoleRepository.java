@@ -1,6 +1,6 @@
-package org.example.repository;
+package org.example.mongo.repository;
 
-import org.example.entity.Role;
+import org.example.mongo.entity.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface RoleRepository extends MongoRepository<Role, String> {

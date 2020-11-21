@@ -1,11 +1,11 @@
-package org.example.service;
+package org.example.mongo.service;
 
-import org.example.entity.Role;
-import org.example.entity.User;
-import org.example.exception.UserNotFoundByEmail;
-import org.example.exception.UserNotFoundByIdException;
-import org.example.repository.RoleRepository;
-import org.example.repository.UserRepository;
+import org.example.mongo.entity.Role;
+import org.example.mongo.entity.User;
+import org.example.mongo.exception.UserNotFoundByEmail;
+import org.example.mongo.exception.UserNotFoundByIdException;
+import org.example.mongo.repository.RoleRepository;
+import org.example.mongo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

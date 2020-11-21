@@ -1,10 +1,10 @@
-package org.example.dto;
+package org.example.mongo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.entity.Role;
-import org.example.entity.User;
+import org.example.mongo.entity.Role;
+import org.example.mongo.entity.User;
 
 import java.util.Set;
 

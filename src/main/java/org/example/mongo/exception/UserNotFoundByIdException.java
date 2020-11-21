@@ -1,4 +1,4 @@
-package org.example.exception;
+package org.example.mongo.exception;
 
 public class UserNotFoundByIdException extends UserNotFound {
     public UserNotFoundByIdException(String id) {
