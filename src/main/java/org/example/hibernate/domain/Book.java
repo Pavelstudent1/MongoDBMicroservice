@@ -1,26 +1,25 @@
 package org.example.hibernate.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Books")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Book {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BookSequence")
     private Long id;
 
     private String label;
 
-//    private List<Author> authors;
+    @OneToMany(mappedBy = "books", cascade = {CascadeType.ALL})
+    private Set<Author> authors = new HashSet<>();
 }

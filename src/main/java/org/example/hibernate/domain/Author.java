@@ -1,22 +1,25 @@
 package org.example.hibernate.domain;
 
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "Authors")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Author {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AuthorSequence")
     private Long id;
 
     private String firstName;
 
     private String lastName;
 
-//    private List<Book> books;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Book books;
 }
