@@ -20,6 +20,6 @@ public class Book {
 
     private String label;
 
-    @OneToMany(mappedBy = "books", cascade = {CascadeType.ALL})
-    private Set<Author> authors = new HashSet<>();
+    @ManyToMany(mappedBy = "books")
+    private Set<Author> authors;
 }

@@ -3,6 +3,7 @@ package org.example.hibernate.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "Authors")
 @Getter
@@ -20,6 +21,11 @@ public class Author {
 
     private String lastName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Book books;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "Authors_Books",
+            joinColumns = {@JoinColumn(name = "author_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")}
+    )
+    private Set<Book> books;
 }

@@ -1,20 +1,19 @@
-package org.example.hibernate;
+package org.example.hibernate.config;
 
 import org.example.hibernate.domain.Author;
 import org.example.hibernate.domain.Book;
 import org.example.hibernate.repository.AuthorRepository;
 import org.example.hibernate.repository.BookRepository;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
+import javax.annotation.PostConstruct;
 import java.util.HashSet;
 import java.util.Set;
 
-@SpringBootTest(classes = HibernateApplication.class)
-@Transactional
-class HibernateApplicationTest {
+@Component
+public class Test {
 
     @Autowired
     private BookRepository bookRepository;
@@ -22,9 +21,11 @@ class HibernateApplicationTest {
     @Autowired
     private AuthorRepository authorRepository;
 
-    @Test
-    void test() {
+    @Autowired
+    private ApplicationContext context;
 
+    @PostConstruct
+    public void run() {
         final var book1 = Book.builder().label("Book 1").build();
         final var book2 = Book.builder().label("Book 2").build();
         final var book3 = Book.builder().label("Book 3").build();
